@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="buy some corn here">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Fruit/Veggie Shop</h1>
+  </header>
+  <main id="main">
+    <h2 class="section_title">Our Products</h2>
+    <!-- Add a product -->
+    <div class="product">
+      <img src="images/corn_with_leaves.jpg" alt="Corn">
+      <div>
+        <h3>Corn</h3>
+        <p>Sweet and juicy corn, perfect for a summer barbecue!</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product">
+        <img src="https://source.unsplash.com/random/?pear" alt="pear">
+        <div>
+          <h3>Pear</h3>
+          <p>Pears are also sweet and juicy, perfect for autumn!</p>
+          <button onclick="addToCart()">Add to Cart</button>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Corn Store</p>
+  </footer>
+  <!-- Add JavaScript to keep track of the cart -->
+  <script>
+    let cart = [];
+    const main = document.querySelector("#main");
+    let place = 0;
+    
+    for (let i = 0; i < 10001; i++) {
+        const div = document.createElement("div");
+        div.classList.add("product");
+        place = i;
+        const content = `
+            <img src="https://source.unsplash.com/random/800×700/?mango" alt="Mango">
+            <div>
+              <h3>Mangoes #${place}</h3>
+              <p>They're sweet and flavorful. Especially in smoothies and juices. Take the break you deserve, with this fruit.</p>
+              <button onclick="addToCart()">Add to Cart</button>`;
+        div.innerHTML = content;
+        main.appendChild(div);
+    }
+
+    function addToCart() {
+      cart.push({ name: "Corn", quantity: 1 });
+      alert("Corn added to cart!");
+    }
+  </script>
+</body>
+</html>
